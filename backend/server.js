@@ -32,7 +32,7 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log("✅ Socket connected:", socket.id);
+  //console.log("✅ Socket connected:", socket.id);
 
   socket.on("join-session", (sessionId) => {
     const logs = eventStore.getEvents(sessionId);
@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("❌ Socket disconnected:", socket.id);
+    //console.log("❌ Socket disconnected:", socket.id);
   });
 });
 
@@ -51,5 +51,5 @@ eventStore.on("newEvent", (sessionId, event) => {
 
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
-  console.log(`🚀 Backend listening at http://localhost:${PORT}`);
+ // console.log(`🚀 Backend listening at http://localhost:${PORT}`);
 });
