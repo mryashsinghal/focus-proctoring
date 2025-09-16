@@ -44,7 +44,7 @@ export default function VideoRecorder({ sessionId = "session-123" }) {
 
   const sendEventToBackend = async (type, message = "", details = {}) => {
     try {
-      await fetch("http://localhost:4000/api/events", {
+      await fetch("https://focus-proctoring-backend.onrender.com/api/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId, type, message, details }),
@@ -91,7 +91,7 @@ export default function VideoRecorder({ sessionId = "session-123" }) {
         form.append("videoChunk", e.data, "chunk.webm");
         form.append("sessionId", sessionId);
         try {
-          const res = await fetch("http://localhost:4000/api/upload", { method: "POST", body: form });
+          const res = await fetch("https://focus-proctoring-backend.onrender.com/api/upload", { method: "POST", body: form });
           const json = await res.json();
           // optional: store upload path
           addLog("Uploaded chunk: " + (json.filename || json.path || "ok"));
