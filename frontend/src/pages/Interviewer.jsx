@@ -28,7 +28,7 @@ export default function Interviewer() {
 
   const fetchReport = async () => {
     try {
-      const res = await fetch(`http://localhost:4000/api/events/report/${sessionId}`);
+      const res = await fetch(`https://focus-proctoring-backend.onrender.com/api/events/report/${sessionId}`);
       const json = await res.json();
       setReport(json);
     } catch (err) {
